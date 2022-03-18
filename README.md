@@ -1,4 +1,4 @@
-# Share Csv Files and List URLs on Google Drive 
+# Share Csv Files and List URLs in Google Drive 
 ## 役割
 Google Driveの特定のフォルダ(namely <FOLDER_NAME>)の中のCSVファイルを一括で共有設定にしてURLを取得するものです。以下を実行すると、urls.csvというファイルが作られます。
 
