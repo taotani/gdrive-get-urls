@@ -14,6 +14,12 @@ pipenv run python -m main <FOLDER_NAME>
 |-----------|--------------|
 | test1.csv | https://.... |
 
+## インストール方法
+以下を実行してください。
+```
+pipenv install
+```
+
 ## 利用のために
 OAuth 2.0 クライアントIDを発行して認証情報のJSONファイルをダウンロードし、credentials.jsonとして README.md と同じディレクトリにおいてください。
 https://developers.google.com/workspace/guides/configure-oauth-consent
