@@ -45,7 +45,7 @@ def list_files(service, parent):
     page_token = None
     files = []
     while True:
-        response = service.files().list(q=f"\'{parent['id']}\' in parents and mimeType = 'text/csv'",
+        response = service.files().list(q=f"\'{parent['id']}\' in parents",
                                           spaces = 'drive',
                                           fields='nextPageToken, files(id, name)',
                                           pageToken=page_token).execute()
