@@ -19,9 +19,10 @@ def share_file(service, file):
     }
     service.permissions().create(
             fileId=file_id,
+            supportsAllDrives = True,
             body=user_permission
     ).execute()
-    result = service.files().get(fileId=file_id, fields='webViewLink').execute()
+    result = service.files().get(fileId=file_id, supportsAllDrives = True, fields='webViewLink').execute()
     return result
 
 
@@ -31,6 +32,8 @@ def get_parent_folders(service, title):
     while True:
         response = service.files().list(q=f"name = '{title}'",
                                           spaces = 'drive',
+                                          includeItemsFromAllDrives = True,
+                                          supportsAllDrives = True,
                                           fields='nextPageToken, files(id, name)',
                                           pageToken=page_token).execute()
         for file in response.get('files', []):
@@ -48,6 +51,8 @@ def list_files(service, parent):
         response = service.files().list(q=f"\'{parent['id']}\' in parents",
                                           spaces = 'drive',
                                           fields='nextPageToken, files(id, name)',
+                                          supportsAllDrives = True,
+                                          includeItemsFromAllDrives = True,
                                           pageToken=page_token).execute()
         for file in response.get('files', []):
             # Process change
